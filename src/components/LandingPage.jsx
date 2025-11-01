@@ -71,7 +71,7 @@ const LandingPage = () => {
           <div className="flex items-center justify-center gap-2 mb-8">
             <div className="flex items-center gap-2 bg-violet-100 text-violet-600 px-4 py-2 rounded-full text-sm font-medium">
               <Shield className="h-4 w-4" />
-              THE PROBLEM IN ONLINE BROKERAGE
+              AI-POWERED INSURANCE PLATFORM
             </div>
           </div>
 
