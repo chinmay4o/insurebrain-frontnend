@@ -75,13 +75,11 @@ const LandingPage = () => {
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-8 max-w-4xl mx-auto">
-            Insurance Recommendation
-            <br />
-            <span className="text-violet-600">Reimagined</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-8 max-w-4xl mx-auto px-4">
+            Insurance Recommendation <span className="text-violet-600">Reimagined</span>
           </h1>
 
-          <h5 className="text-xl font-bold text-gray-900 leading-tight mb-8 max-w-4xl mx-auto">
+          <h5 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight mb-8 max-w-4xl mx-auto px-4">
             Insurance Agents Are Overselling, Underselling, and <span className="text-violet-600">Misselling</span>
           </h5>
 
