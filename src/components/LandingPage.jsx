@@ -75,8 +75,10 @@ const LandingPage = () => {
             </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-8 max-w-4xl mx-auto px-4">
-            Insurance Recommendation <span className="text-violet-600">Reimagined</span>
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-8 max-w-4xl mx-auto">
+            Insurance Recommendation
+            <br />
+            <span className="text-violet-600">Reimagined</span>
           </h1>
 
           <h5 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight mb-8 max-w-4xl mx-auto px-4">
