@@ -1,90 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button } from './ui/button';
-import InsureBrainLogo from './ui/InsureBrainLogo';
-import { BarChart3, Zap, Shield, Users, ChevronRight, Play, TrendingUp, PieChart, Activity, ChevronLeft } from 'lucide-react';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "./ui/button";
+import InsureBrainLogo from "./ui/InsureBrainLogo";
+import {
+  Shield,
+  ChevronRight,
+  BarChart3,
+  Zap,
+  Eye,
+  Users,
+  CheckCircle,
+  TrendingUp,
+  FileText,
+  Lock,
+  Heart,
+  Activity,
+  PieChart,
+  Globe,
+  Search,
+  Award,
+  UserCheck,
+} from "lucide-react";
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const dashboardSlides = [
-    {
-      id: 1,
-      title: "AI-Powered Analysis Dashboard",
-      description: "Real-time client profile analysis",
-      icon: BarChart3,
-      bgGradient: "from-blue-100 to-purple-100",
-      iconColor: "text-blue-600"
-    },
-    {
-      id: 2,
-      title: "Policy Comparison Engine",
-      description: "Compare multiple insurance options",
-      icon: TrendingUp,
-      bgGradient: "from-green-100 to-blue-100",
-      iconColor: "text-green-600"
-    },
-    {
-      id: 3,
-      title: "Risk Assessment Matrix",
-      description: "Advanced risk profiling system",
-      icon: PieChart,
-      bgGradient: "from-purple-100 to-pink-100",
-      iconColor: "text-purple-600"
-    },
-    {
-      id: 4,
-      title: "Performance Analytics",
-      description: "Track your success metrics",
-      icon: Activity,
-      bgGradient: "from-orange-100 to-red-100",
-      iconColor: "text-orange-600"
-    }
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % dashboardSlides.length);
-    }, 4000); // Change slide every 4 seconds
-
-    return () => clearInterval(timer);
-  }, [dashboardSlides.length]);
 
   const handleGetStarted = () => {
-    navigate('/login');
+    navigate("/login");
   };
 
   const handleLogin = () => {
-    navigate('/login');
+    navigate("/login");
   };
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % dashboardSlides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + dashboardSlides.length) % dashboardSlides.length);
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
+  const handleScheduleDemo = () => {
+    navigate("/login");
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <InsureBrainLogo size="default" showTagline={false} />
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
-              <a href="#about" className="text-gray-600 hover:text-gray-900">About</a>
+              <a href="#features" className="text-gray-600 hover:text-gray-900 text-sm">
+                Features
+              </a>
+              <a
+                href="#why-insurebrain"
+                className="text-gray-600 hover:text-gray-900 text-sm"
+              >
+                Why InsureBrain
+              </a>
               <Button
-                variant="outline"
                 onClick={handleLogin}
-                className="text-blue-600 border-blue-600 hover:bg-blue-50"
+                className="bg-violet-600 hover:bg-violet-700 text-white px-6 py-2 rounded-lg text-sm font-medium"
               >
                 Login
               </Button>
@@ -95,230 +67,386 @@ const LandingPage = () => {
 
       {/* Hero Section */}
       <section className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="flex items-center gap-2 mb-6">
-                <div className="flex items-center gap-2 bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
-                  <Zap className="h-4 w-4" />
-                  AI-POWERED PLATFORM
-                </div>
-              </div>
-              
-              <h1 className="text-5xl font-bold text-gray-900 leading-tight mb-6">
-                Insurance
-                <br />
-                Recommendations,
-                <br />
-                Reimagined
-              </h1>
-              
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                InsureBrain uses advanced AI to analyze client profiles and recommend the perfect insurance policies from top insurers. Transform how you sell insurance.
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <div className="flex items-center gap-2 bg-violet-100 text-violet-600 px-4 py-2 rounded-full text-sm font-medium">
+              <Shield className="h-4 w-4" />
+              THE PROBLEM IN ONLINE BROKERAGE
+            </div>
+          </div>
+
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-8 max-w-4xl mx-auto">
+            Insurance Recommendation
+            <br />
+            <span className="text-violet-600">Reimagined</span>
+          </h1>
+
+          <h5 className="text-xl font-bold text-gray-900 leading-tight mb-8 max-w-4xl mx-auto">
+            Insurance Agents Are Overselling, Underselling, and <span className="text-violet-600">Misselling</span>
+          </h5>
+
+          <p className="text-lg text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto">
+            In the Indian market, insurance professionals face a critical
+            challenge: recommending the right policy at the right price. Agents
+            often sell policies that benefit their commission, not their
+            clients. Customers get oversold, undersold, or mis-sold because of
+            inadequate technology and fragmented information.
+          </p>
+
+          {/* Pain Points */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-gray-900 mb-3">
+                • Overselling
+              </h3>
+              <p className="text-sm text-gray-600">
+                Agents recommend expensive policies, leading to customer
+                dissatisfaction and policy lapses
               </p>
-              
-              <div className="flex gap-4">
-                <Button
-                  onClick={handleGetStarted}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-lg font-medium"
-                >
-                  Get Started
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 text-lg font-medium"
-                >
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch Demo
-                </Button>
-              </div>
             </div>
-            
-            <div className="relative">
-              {/* Dashboard Slider */}
-              <div className="relative overflow-hidden rounded-2xl h-80">
-                <div 
-                  className="flex transition-transform duration-500 ease-in-out h-full"
-                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                >
-                  {dashboardSlides.map((slide, index) => {
-                    const IconComponent = slide.icon;
-                    return (
-                      <div
-                        key={slide.id}
-                        className={`min-w-full bg-gradient-to-br ${slide.bgGradient} p-8 flex items-center justify-center`}
-                      >
-                        <div className="text-center">
-                          <IconComponent className={`h-24 w-24 ${slide.iconColor} mx-auto mb-4`} />
-                          <h3 className="text-lg font-semibold text-gray-800 mb-2">{slide.title}</h3>
-                          <p className="text-gray-600">{slide.description}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
 
-                {/* Navigation Arrows */}
-                <button
-                  onClick={prevSlide}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200"
-                >
-                  <ChevronLeft className="h-5 w-5 text-gray-600" />
-                </button>
-                
-                <button
-                  onClick={nextSlide}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200"
-                >
-                  <ChevronRight className="h-5 w-5 text-gray-600" />
-                </button>
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-gray-900 mb-3">
+                • Underselling
+              </h3>
+              <p className="text-sm text-gray-600">
+                Inadequate coverage leaves families vulnerable during critical
+                moments
+              </p>
+            </div>
 
-                {/* Slide Indicators */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                  {dashboardSlides.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => goToSlide(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                        index === currentSlide
-                          ? 'bg-white shadow-lg'
-                          : 'bg-white/50 hover:bg-white/70'
-                      }`}
-                    />
-                  ))}
-                </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-gray-900 mb-3">• Misselling</h3>
+              <p className="text-sm text-gray-600">
+                Wrong policy recommendations damage client trust and regulatory
+                compliance
+              </p>
+            </div>
+          </div>
 
-                {/* Slide Counter */}
-                <div className="absolute top-4 right-4 bg-white/90 rounded-full px-3 py-1 text-sm font-medium text-gray-700">
-                  {currentSlide + 1} / {dashboardSlides.length}
-                </div>
+          {/* Statistics */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-violet-600 mb-2">40%+</div>
+              <p className="text-gray-600 text-sm">
+                Of policies lapse within 2-3 years due to mis-selling
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="text-4xl font-bold text-violet-600 mb-2">
+                ₹5000+ Cr
               </div>
+              <p className="text-gray-600 text-sm">
+                Annual losses from inadequate & improper insurance
+                recommendations
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="text-4xl font-bold text-violet-600 mb-2">
+                2-3 hrs
+              </div>
+              <p className="text-gray-600 text-sm">
+                Time agents spend finding right policy per client
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose InsureBrain Section */}
-      <section className="py-20 bg-white" id="features">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose InsureBrain?</h2>
-            <p className="text-xl text-gray-600">Enterprise-grade insurance recommendations powered by artificial intelligence</p>
+      {/* AI Solution Section */}
+      <section className="py-20 bg-white" id="why-insurebrain">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <div className="flex items-center gap-2 bg-violet-100 text-violet-600 px-4 py-2 rounded-full text-sm font-medium">
+              <Zap className="h-4 w-4" />
+              AI-POWERED SOLUTION
+            </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8">
-              <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <Zap className="h-8 w-8 text-blue-600" />
+
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+            AI-Powered Recommendations
+            <br />
+            That Get It Right
+          </h2>
+
+          <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+            InsureBrain combines every customer requirement using advanced ML
+            and AI to recommend the perfect policy by eliminating bias-making,
+            over-selling, and mis-selling.
+          </p>
+
+          {/* AI Features */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-violet-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BarChart3 className="h-8 w-8 text-violet-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Instant Recommendations</h3>
-              <p className="text-gray-600">Get AI-powered insurance recommendations in seconds, not hours</p>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Instant AI Analysis
+              </h3>
+              <p className="text-sm text-gray-600">
+                Analyze customer requirements and provide instant
+                recommendations using advanced AI algorithms
+              </p>
             </div>
-            
-            <div className="text-center p-8">
-              <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <BarChart3 className="h-8 w-8 text-green-600" />
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-violet-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Search className="h-8 w-8 text-violet-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Data-Driven Insights</h3>
-              <p className="text-gray-600">Analyze client profiles and match them with optimal coverage</p>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Smart AI Matching
+              </h3>
+              <p className="text-sm text-gray-600">
+                Match using machine learning algorithms for optimal policy
+                selection across multiple insurers
+              </p>
             </div>
-            
-            <div className="text-center p-8">
-              <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <Shield className="h-8 w-8 text-purple-600" />
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-violet-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-8 w-8 text-violet-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Multi-Product Support</h3>
-              <p className="text-gray-600">Life, Health, Auto, Home, Business, and Group Insurance coverage</p>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Compliance & Security
+              </h3>
+              <p className="text-sm text-gray-600">
+                Ensure regulatory compliance with built-in compliance checks
+                and security protocols
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-violet-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Eye className="h-8 w-8 text-violet-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Complete Transparency
+              </h3>
+              <p className="text-sm text-gray-600">
+                Full transparency in recommendations with clear reasoning
+                and explainable AI decisions
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works Section */}
+      {/* The InsureBrain Process */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
-            <p className="text-xl text-gray-600">Simple, streamlined process to find the perfect insurance for your clients</p>
-          </div>
-          
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            The InsureBrain Process
+          </h2>
+          <p className="text-lg text-gray-600 mb-16">
+            Four simple steps to eliminate mis-selling and customer
+            dissatisfaction
+          </p>
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold">1</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Client Profile</h3>
-              <p className="text-gray-600 text-sm">Input client information and needs</p>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Client Profile
+              </h3>
+              <p className="text-sm text-gray-600">
+                Agents input comprehensive client requirements including budget,
+                risk tolerance and lifestyle preferences
+              </p>
             </div>
-            
+
             <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold">2</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">AI Analysis</h3>
-              <p className="text-gray-600 text-sm">Our AI analyzes coverage requirements</p>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                AI Validation
+              </h3>
+              <p className="text-sm text-gray-600">
+                Our AI validates the requirements and runs comprehensive risk
+                assessment across multiple parameters
+              </p>
             </div>
-            
+
             <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold">3</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Recommendations</h3>
-              <p className="text-gray-600 text-sm">Get personalized policy suggestions</p>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Policy Comparison
+              </h3>
+              <p className="text-sm text-gray-600">
+                InsureBrain compares across 15+ top insurers and provides 3-5
+                most relevant suggestions
+              </p>
             </div>
-            
+
             <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold">4</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Close Deal</h3>
-              <p className="text-gray-600 text-sm">Complete the sale with confidence</p>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Confident Close
+              </h3>
+              <p className="text-sm text-gray-600">
+                Agents can confidently recommend with full transparency and
+                data-backed reasoning
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Enterprise Features */}
+      <section className="py-20 bg-white" id="features">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Enterprise Features
+            </h2>
+            <p className="text-lg text-gray-600">
+              Built for professional insurance brokers and agencies
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                Client Management Dashboard
+              </h3>
+              <p className="text-gray-600 mb-8">
+                Centralized platform for managing client profiles, recommendations, and policy history
+              </p>
+
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                Commission Tracking
+              </h3>
+              <p className="text-gray-600 mb-8">
+                Track earnings by product, client, and time period with transparent reporting
+              </p>
+
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                Multi-Product Support
+              </h3>
+              <p className="text-gray-600 mb-8">
+                Life, Health, Auto, Home, Business, and Group insurance—all in one platform
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                Real-Time Policy Comparison
+              </h3>
+              <p className="text-gray-600 mb-8">
+                Compare 1000+ policies instantly. Filter by coverage, premium, and suitability scores
+              </p>
+
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                Compliance & Audit Trail
+              </h3>
+              <p className="text-gray-600 mb-8">
+                Full audit trail of every recommendation meeting RBI and IRDAI guidelines
+              </p>
+
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                Banking-Grade Security
+              </h3>
+              <p className="text-gray-600 mb-8">
+                256-bit encryption, role-based access control, and regular security audits
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Trusted by Professionals Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Trusted by Insurance Professionals</h2>
-            <p className="text-xl text-gray-600">InsureBrain is built with enterprise-grade security and compliance standards</p>
+      <section className="py-20 bg-violet-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Trusted by Insurance Professionals
+          </h2>
+          <p className="text-lg text-gray-600 mb-12">
+            Built with enterprise-grade security and AI that brings compliance
+            with market insights
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div>
+              <div className="text-4xl font-bold text-violet-600 mb-2">
+                5,000+
+              </div>
+              <p className="text-gray-600 text-sm">Active Agents & Brokers</p>
+            </div>
+
+            <div>
+              <div className="text-4xl font-bold text-violet-600 mb-2">
+                50,000+
+              </div>
+              <p className="text-gray-600 text-sm">Policies Recommended</p>
+            </div>
+
+            <div>
+              <div className="text-4xl font-bold text-violet-600 mb-2">94%</div>
+              <p className="text-gray-600 text-sm">Accuracy Rate</p>
+            </div>
+
+            <div>
+              <div className="text-4xl font-bold text-violet-600 mb-2">89%</div>
+              <p className="text-gray-600 text-sm">Policy Retention Rate</p>
+            </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">5,000+</div>
-              <p className="text-gray-600">Active Users</p>
+
+          {/* Compliance badges */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-gray-900">IRDAI Compliant</h4>
             </div>
-            
-            <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">50,000+</div>
-              <p className="text-gray-600">Policies Recommended</p>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-gray-900">ISO Compliant</h4>
             </div>
-            
-            <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">94%</div>
-              <p className="text-gray-600">Success Rate</p>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h4 className="font-semibold text-gray-900">
+                SOC 2 Type II Certified
+              </h4>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Ready to Transform Your Insurance Business?</h2>
-          <p className="text-xl text-gray-600 mb-8">Join thousands of insurance professionals using InsureBrain to close more deals faster</p>
-          
-          <Button
-            onClick={handleGetStarted}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium"
-          >
-            Start Free Trial
-            <ChevronRight className="ml-2 h-5 w-5" />
-          </Button>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Ready to Eliminate Misselling?
+          </h2>
+          <p className="text-lg text-gray-600 mb-8">
+            Join thousands of insurance professionals using InsureBrain to
+            recommend the right policies, every time. Start your free trial
+            today.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              onClick={handleGetStarted}
+              className="bg-violet-600 hover:bg-violet-700 text-white px-8 py-4 text-lg font-medium rounded-lg"
+            >
+              Start Free Trial
+              <ChevronRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button
+              variant="outline"
+              onClick={handleScheduleDemo}
+              className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-lg font-medium rounded-lg"
+            >
+              Schedule Demo
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -328,42 +456,49 @@ const LandingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <InsureBrainLogo size="small" showTagline={true} />
-              <p className="text-gray-600 text-sm mt-4">AI-Powered Insurance Solutions</p>
+              <p className="text-gray-600 text-sm mt-4">
+                AI-Powered Insurance Recommendations Platform for Insurance Professionals
+              </p>
             </div>
-            
+
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">Product</h4>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>Features</li>
                 <li>Pricing</li>
-                <li>Security</li>
+                <li>Integrations</li>
+                <li>API</li>
               </ul>
             </div>
-            
+
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Company</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">Resources</h4>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>About</li>
+                <li>Documentation</li>
+                <li>Help Center</li>
                 <li>Blog</li>
-                <li>Contact</li>
+                <li>Status</li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">Legal</h4>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>Privacy</li>
-                <li>Terms</li>
-                <li>Compliance</li>
+                <li>Privacy Policy</li>
+                <li>Terms of Service</li>
+                <li>Cookie Policy</li>
+                <li>Contact</li>
               </ul>
             </div>
           </div>
-          
-          <div className="border-t border-gray-200 mt-8 pt-8 flex justify-between items-center">
-            <p className="text-sm text-gray-600">© 2024 InsureBrain. All rights reserved.</p>
+
+          <div className="border-t border-gray-200 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-sm text-gray-600 mb-4 sm:mb-0">
+              © 2024 InsureBrain. All rights reserved.
+            </p>
             <div className="flex space-x-4 text-sm text-gray-600">
-              <span>Twitter</span>
-              <span>LinkedIn</span>
+              <a href="#" className="hover:text-violet-600">Twitter</a>
+              <a href="#" className="hover:text-violet-600">LinkedIn</a>
             </div>
           </div>
         </div>
