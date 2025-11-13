@@ -14,7 +14,7 @@ const MySessions = () => {
   const fetchSessions = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('https://insurance-server.vercel.app/api/sessions', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/sessions`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

@@ -13,7 +13,9 @@ import {
   Shield, 
   History, 
   LogOut,
-  User
+  User,
+  Menu,
+  X
 } from 'lucide-react';
 
 const Dashboard = ({ activeRoute }) => {
@@ -23,6 +25,7 @@ const Dashboard = ({ activeRoute }) => {
   const [selectedInsuranceType, setSelectedInsuranceType] = useState(null);
   const [recommendationData, setRecommendationData] = useState(null);
   const [policyStats, setPolicyStats] = useState({ activePolicies: '...' });
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   // Determine active tab from route or prop
   const getActiveTabFromRoute = () => {
@@ -289,12 +292,35 @@ const Dashboard = ({ activeRoute }) => {
 
   return (
     <div className="flex h-screen bg-background">
+
+      {/* Collapsed Sidebar Toggle */}
+      {!sidebarOpen && (
+        <div className="w-12 border-r bg-card flex flex-col items-center py-4">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="p-2 hover:bg-accent rounded-md transition-colors"
+            title="Open sidebar"
+          >
+            <Menu className="h-4 w-4 text-muted-foreground" />
+          </button>
+        </div>
+      )}
+
       {/* Sidebar */}
-      <div className="w-64 border-r bg-card">
+      <div className={`${sidebarOpen ? 'w-64' : 'w-0'} border-r bg-card transition-all duration-300 overflow-hidden`}>
         <div className="flex flex-col h-full">
           <div className="p-6">
-            <InsureBrainLogo size="small" showTagline={false} />
-            <p className="text-xs text-muted-foreground mt-2">AI-Powered Insurance Platform</p>
+            <div className="flex items-center justify-between mb-4">
+              <InsureBrainLogo size="small" showTagline={false} />
+              <button
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className="p-1.5 hover:bg-accent rounded-md transition-colors"
+                title="Toggle sidebar"
+              >
+                <X className="h-4 w-4 text-muted-foreground" />
+              </button>
+            </div>
+            <p className="text-xs text-muted-foreground">AI-Powered Insurance Platform</p>
             <p className="text-sm text-muted-foreground mt-1">{user?.name}</p>
           </div>
           
