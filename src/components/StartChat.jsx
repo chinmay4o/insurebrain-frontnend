@@ -71,7 +71,7 @@ const StartChat = ({ insuranceType = 'life', onShowResults }) => {
       });
 
       const apiEndpoint = insuranceType === 'life' ? 'life/recommendations' : 'recommendations';
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/${apiEndpoint}?${queryParams}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/${apiEndpoint}?${queryParams}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
